@@ -1,0 +1,22 @@
+{
+  "name": "ez-crud-api",
+  "version": "0.0.1",
+  "description": "Simple yet flexible REST api for UI developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0",
+    "uuid": "^8.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-plugin-node": "^11.1.0"
+  }
+}

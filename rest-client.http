@@ -1,0 +1,45 @@
+POST {{baseUrl}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+   "name": "Tristan Moreland",
+   "birthdate": "2008-07-23",
+   "nationalId": "111-33-1111"
+}
+
+###
+PUT {{baseUrl}}/users/ad11bc6c-8bae-422b-b908-bd3a9da92922
+Accept: application/json
+Content-Type: application/json
+
+{
+   "active": true,
+   "birthdate": "2009-07-23"
+}
+
+###
+GET {{baseUrl}}/users
+Accept: application/json
+Cache-Control: no-cache
+
+###
+GET {{baseUrl}}/users/search?sortBy=name
+Accept: application/json
+
+###
+GET {{baseUrl}}/users/search?sortBy=name&take=1
+Accept: application/json
+
+###
+// base64 encode '{ "birthdate": "1972-08-08" }'
+GET {{baseUrl}}/users/search?filter=eyAiYmlydGhkYXRlIjogIjE5NzItMDgtMDgifQ==
+Accept: application/json
+
+###
+GET {{baseUrl}}/users/66a3a77e-a4d9-43b3-9f2d-4bf4537b59b7
+Accept: application/json
+
+###
+DELETE {{baseUrl}}/users/66a3a77e-a4d9-43b3-9f2d-4bf4537b59b7
+Accept: */*
