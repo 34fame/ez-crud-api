@@ -1,8 +1,8 @@
 # ez-crud-api
 
-This project creates a very simple but flexible REST API service with built-in CRUD endpoints.  The idea was to give
- a UI developer a quick and simple way to get an API up and running to start developing against.  Unlock a mock API
-  the data can persist but doesn't require third-party database or any other external dependency.
+This project creates a very simple but flexible Node.js/Express REST API service with built-in CRUD endpoints.  The idea
+ was to give a UI developer a quick and simple way to get an API up and running to start developing against.  Unlike a
+  mock API the data can persist but doesn't require a third-party database or any other external dependency.
   
 ## Installation
 
@@ -36,8 +36,8 @@ const port = 3000  // Change this value to run service on a different local port
 ## Default Endpoints
 
 For the sake of these examples I'll assume you are using the default `hrms-empty.json` file to seed your database
-.  If not, the same calls are available but your collection names may be different.  A "collection" is the top level
- keys of your JSON seed file.  By default you have a "users", "departments", "locations" and "positions" collection.
+.  If not, the same calls are available, but your collection names may be different.  A "collection" is the top-level
+ keys of your JSON seed file.  By default, you have a "users", "departments", "locations" and "positions" collection.
  
  ```js
 module.exports = {
@@ -49,33 +49,6 @@ module.exports = {
 ```
 
 Now we can start managing our object.
-
-### Create Collection Item
-
-Request
-```shell script
-POST /users
-Content-Type: application/json
-Accept: application/json
-{
-   "firstName": "Troy",
-   "lastName": "Moreland"
-}
-```
-
-Response
-```json
-{
-   "firstName": "Troy",
-   "lastName": "Moreland",
-   "id": "<uuid>"
-}
-```
-
-The object can be any json structure you want.  The only constraint is that you must seed your database with your
- collections.  What you put in them is totally up to you.  An "id" value will be generated for every new collection
-  item.
-  
 
 ### Get Collection Items
 Returns all collection items.
@@ -174,13 +147,32 @@ GET /users/search?sortBy=lastName&take=10
 Accept: application/json
 ```
 
-### Delete Collection Item
-Deletes an item and returns the entire object deleted.
+### Create Collection Item
 
+Request
 ```shell script
-DELETE /users/:id
+POST /users
+Content-Type: application/json
 Accept: application/json
+{
+   "firstName": "Troy",
+   "lastName": "Moreland"
+}
 ```
+
+Response
+```json
+{
+   "firstName": "Troy",
+   "lastName": "Moreland",
+   "id": "<uuid>"
+}
+```
+
+The object can be any json structure you want.  The only constraint is that you must seed your database with your
+ collections.  What you put in them is totally up to you.  An "id" value will be generated for every new collection
+  item.
+  
 
 ### Update Collection Item
 Updates an item and returns the entire object.
@@ -195,3 +187,12 @@ Content-Type: application/json
    "active": false
 }
 ```
+
+### Delete Collection Item
+Deletes an item and returns the entire object deleted.
+
+```shell script
+DELETE /users/:id
+Accept: application/json
+```
+
